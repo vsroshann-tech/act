@@ -16,8 +16,8 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: SSH Deploy
-      uses: appleboy/ssh-action@v0.1.0
+    - name: Deploy via SSH
+      uses: appleboy/ssh-action@v1
       with:
         host: ${{ secrets.EC2_HOST }}
         username: ${{ secrets.EC2_USER }}
