@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -22,7 +25,7 @@ jobs:
         script: |
           cd /home/ubuntu/app
           git pull
-          docker build -t sample-app .
-          docker stop sample-app || true
-          docker rm sample-app || true
-          docker run -d -p 80:80 --name sample-app sample-app
+          sudo docker build -t sample-app .
+          sudo docker stop sample-app || true
+          sudo docker rm sample-app || true
+          sudo docker run -d -p 80:80 --name sample-app sample-app
